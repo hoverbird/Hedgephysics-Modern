@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.PostProcessing;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerSpawnManager : NetworkBehaviour {
-    public PostProcessingProfile PostProcessingProfile;
+    public PostProcessProfile PostProcessingProfile;
 	// Use this for initialization
 	void Start () {
         StartCoroutine(UpdatePosition());
@@ -33,8 +33,8 @@ public class PlayerSpawnManager : NetworkBehaviour {
                 FindObjectOfType<PlayerBhysics>().transform.position = transform.position;
             }
         }
-        if (FindObjectOfType<PostProcessingBehaviour>()) {
-            FindObjectOfType<PostProcessingBehaviour>().profile = PostProcessingProfile;
+        if (FindObjectOfType<PostProcessVolume>()) {
+            FindObjectOfType<PostProcessVolume>().profile = PostProcessingProfile;
         }
     }
 }
